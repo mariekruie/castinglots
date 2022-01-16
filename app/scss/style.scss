@@ -1,0 +1,482 @@
+@import "fonts";
+@import "vars";
+@import "reset";
+@import "global";
+@import "animations";
+@import "mixins";
+
+.screen {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  transition: all 0.5s ease-out;
+  &.up {
+    margin-top: -100vh;
+  }
+}
+
+// hero screen
+.hero {
+  &__back,
+  &__front {
+    height: 100%;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    padding: 0 3.125rem;
+    cursor: pointer;
+  }
+
+  &__back {
+    position: relative;
+    background: $blue-munsell;
+    color: $light-yellow;
+    @include desktop-down {
+      height: 60vh;
+    }
+  }
+
+  &__front {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background: $light-yellow;
+    justify-content: flex-end;
+    @include desktop-down {
+      top: 40vh;
+      height: 60vh;
+      clip-path: polygon(0% 25%, 100% 0%, 100% 100%, 0% 100%) !important;
+      z-index: 1;
+    }
+  }
+
+  h1 {
+    font-size: 4.5rem;
+    @include desktop-down {
+      font-size: 3.5rem;
+    }
+    @include phone-only {
+      font-size: 2.25rem;
+    }
+  }
+
+  &__front h1 {
+    position: relative;
+    color: $blue-munsell;
+    text-align: right;
+  }
+}
+
+.svg-animated {
+  position: absolute;
+  opacity: 0;
+  -webkit-transition: opacity 0.5s ease-in-out, transform 1s ease-out;
+  transition: opacity 0.5s ease-in-out, transform 1s ease-out;
+  max-height: 100%;
+}
+.on svg {
+  -webkit-animation: roll-in 3s ease-out both;
+  animation: roll-in 3s ease-out both;
+}
+.hero__back svg {
+  width: 70%;
+  height: 100%;
+  display: flex;
+  right: 0;
+  stroke: $light-yellow;
+  fill: none;
+
+  & use:nth-child(1) {
+    // -webkit-animation: swing-in 5s cubic-bezier(0.175, 0.885, 0.32, 1.275) both;
+    // animation: swing-in 5s cubic-bezier(0.175, 0.885, 0.32, 1.275) both;
+  }
+
+  & use:nth-child(2) {
+    // -webkit-animation: swing-in 5s cubic-bezier(0.175, 0.885, 0.32, 1.275) both;
+    // animation: swing-in 5s cubic-bezier(0.175, 0.885, 0.32, 1.275) both;
+    // animation-delay: 1.5s;
+  }
+
+  & use:nth-child(3) {
+    // -webkit-animation: swing-in 5s cubic-bezier(0.175, 0.885, 0.32, 1.275) both;
+    // animation: swing-in 5s cubic-bezier(0.175, 0.885, 0.32, 1.275) both;
+    // animation-delay: 2s;
+  }
+}
+
+.hero__front svg {
+  width: 50%;
+  height: 100%;
+  left: 0;
+  fill: $blue-munsell;
+}
+
+// lots screen
+
+.lots {
+  &__container {
+    display: flex;
+    flex-direction: column;
+  }
+  &__box {
+    height: 60%;
+    background-color: $light-yellow;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    gap: 1.2rem;
+    padding: 0 3.125rem;
+
+    @include phone-only {
+      padding: 1rem 1rem;
+      gap: 1rem;
+    }
+  }
+
+  &__panel {
+    position: relative;
+    height: 40%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 2rem;
+    padding: 0 3.125rem;
+    background-color: $blue-munsell;
+
+    @include phone-only {
+      justify-content: flex-start;
+      align-items: flex-start;
+      padding: 1rem 1rem;
+      gap: 1rem;
+    }
+
+    form {
+      @include phone-only {
+        width: 100%;
+      }
+    }
+
+    input {
+      width: 100%;
+      padding: 1rem 2rem;
+      font-size: 1.7rem;
+      background-color: rgb(255, 255, 255);
+      color: #444;
+      border: 0.123rem solid #444;
+      border-radius: 0.5rem;
+
+      @include phone-only {
+        padding: 1rem 1rem;
+        font-size: 1.2rem;
+      }
+
+      &::placeholder {
+        font-size: 1.3rem;
+        color: #bebebe;
+      }
+
+      &:focus {
+        outline: none;
+      }
+    }
+  }
+
+  &__handlers {
+    display: flex;
+    gap: 1.3rem;
+    @include phone-only {
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+    }
+  }
+
+  small {
+    @include phone-only {
+      max-width: 70%;
+      margin-top: 1rem;
+    }
+  }
+
+  &__svg-close {
+    position: absolute;
+    width: 4.5rem;
+    height: 4.5rem;
+    right: 1vh;
+    bottom: 1vh;
+    cursor: pointer;
+    transition: all 0.2s ease-in-out;
+
+    &:hover {
+      fill: $caribbean-green;
+    }
+  }
+
+  &__item {
+    // class added via JS
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 10rem;
+    height: 10rem;
+    padding: 1rem 1.3rem;
+
+    background-color: #fff;
+    word-break: break-all;
+    text-align: center;
+    font-size: 1rem;
+
+    border: 3px solid black;
+    border-radius: 15%;
+    cursor: pointer;
+
+    transition: all 0.6s ease-in-out;
+
+    @include phone-only {
+      width: 45%;
+      height: 3rem;
+      padding: 0.4rem 1rem;
+
+      border: 2px solid #000;
+      border-radius: 5%;
+    }
+
+    &:hover {
+      background-color: rgb(152, 207, 243);
+      color: rgb(44, 44, 44);
+    }
+
+    &-shuffle {
+      opacity: 0;
+    }
+
+    &-selected {
+      -webkit-animation: winner 1.5s ease-in-out infinite both;
+      animation: winner 1.5s ease-in-out infinite both;
+    }
+  }
+}
+
+// dice screen
+
+.dice {
+  display: flex;
+  flex-direction: column;
+
+  @include phone-only {
+    justify-content: space-around;
+  }
+
+  &__content {
+    width: 70vw;
+    margin: 0 auto;
+    height: 70vh;
+    display: flex;
+    justify-content: space-around;
+    padding-top: 5rem;
+    @include desktop-down {
+      width: 85vw;
+      padding-top: 15rem;
+    }
+    @include phone-only {
+      width: 97vw;
+      flex-direction: column;
+      padding-top: 0;
+      align-items: center;
+      justify-content: flex-start;
+      gap: 7rem;
+    }
+  }
+}
+
+#cube1 .front,
+#cube2 .front {
+  transform: translateZ(100px);
+}
+
+#cube1 .back,
+#cube2 .back {
+  transform: rotateX(-180deg) translateZ(100px);
+}
+
+#cube1 .right,
+#cube2 .right {
+  transform: rotateY(90deg) translateZ(100px);
+}
+
+#cube1 .left,
+#cube2 .left {
+  transform: rotateY(-90deg) translateZ(100px);
+}
+
+#cube1 .top,
+#cube2 .top {
+  transform: rotateX(90deg) translateZ(100px);
+}
+
+#cube1 .bottom,
+#cube2 .bottom {
+  transform: rotateX(-90deg) translateZ(100px);
+}
+
+.container-cube1,
+.container-cube2 {
+  width: 200px;
+  height: 200px;
+  perspective: 1000px;
+  perspective-origin: 50% 100%;
+  // @include phone-only {
+  //   width: 150px;
+  //   height: 150px;
+  // }
+}
+
+#cube1,
+#cube2 {
+  width: 100%;
+  height: 100%;
+  top: 100px;
+  position: absolute;
+
+  transform-style: preserve-3d;
+  transition: transform 3s;
+
+  @include phone-only {
+    top: 90px;
+  }
+}
+#cube1 div {
+  background: $blue-munsell-alpha;
+  display: block;
+  position: absolute;
+  width: 200px;
+  height: 200px;
+  border: 2px solid rgb(63, 63, 63);
+  border-radius: 7px;
+
+  margin: 0 auto;
+
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 500%;
+  text-align: center;
+  padding: 50px 0;
+}
+
+#cube2 div {
+  background: $caribbean-green-alpha;
+  display: block;
+  position: absolute;
+  width: 200px;
+  height: 200px;
+  border: 2px solid rgb(63, 63, 63);
+  border-radius: 7px;
+
+  margin: 0 auto;
+
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 500%;
+  text-align: center;
+  padding: 50px 0;
+}
+
+.dot {
+  display: block;
+  position: absolute;
+  width: 30px;
+  height: 30px;
+  background: #fff;
+  border: 0.6px solid rgb(63, 63, 63);
+  border-radius: 15px;
+  @include phone-only {
+    width: 20px;
+    height: 20px;
+  }
+}
+
+.front .dot1 {
+  top: 85px;
+  left: 85px;
+}
+.top .dot1 {
+  top: 45px;
+  left: 45px;
+}
+.top .dot2 {
+  top: 125px;
+  left: 125px;
+}
+.right .dot1 {
+  top: 45px;
+  left: 45px;
+}
+.right .dot2 {
+  top: 85px;
+  left: 85px;
+}
+.right .dot3 {
+  top: 125px;
+  left: 125px;
+}
+.left .dot1 {
+  top: 45px;
+  left: 45px;
+}
+.left .dot2 {
+  top: 45px;
+  left: 125px;
+}
+.left .dot3 {
+  top: 125px;
+  left: 45px;
+}
+.left .dot4 {
+  top: 125px;
+  left: 125px;
+}
+.bottom .dot1 {
+  top: 45px;
+  left: 45px;
+}
+.bottom .dot2 {
+  top: 45px;
+  left: 125px;
+}
+.bottom .dot3 {
+  top: 85px;
+  left: 85px;
+}
+.bottom .dot4 {
+  top: 125px;
+  left: 45px;
+}
+.bottom .dot5 {
+  top: 125px;
+  left: 125px;
+}
+.back .dot1 {
+  top: 45px;
+  left: 45px;
+}
+.back .dot2 {
+  top: 45px;
+  left: 85px;
+}
+.back .dot3 {
+  top: 45px;
+  left: 125px;
+}
+.back .dot4 {
+  top: 125px;
+  left: 45px;
+}
+.back .dot5 {
+  top: 125px;
+  left: 85px;
+}
+.back .dot6 {
+  top: 125px;
+  left: 125px;
+}
