@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./css/style.min.css"/>
+    <title>Кинем жребий?</title>
+
+    <script>
+        if (history.scrollRestoration) {
+            history.scrollRestoration = 'manual';
+        } else {
+            window.onbeforeunload = function () {
+                window.scrollTo(0, 0);
+            }
+        }
+    </script>
+
+</head>
+<body>
+
+    <svg style="display:none">
+        <defs>
+
+            <symbol id="svg-lots" viewBox="0 0 700 700">
+                <path transform="matrix(11.2 0 0 11.2 70 3.979e-14)" d="m17.5 13.5h14c0.55246 0 0.99993 0.55246 0.99993 0.99993v20c0 0.55246-0.44782 0.99993-0.99993 0.99993h-14c-0.55246 0-0.99993-0.55246-0.99993-0.99993v-20c0-0.55246 0.44782-0.99993 0.99993-0.99993z" stroke-width="2"/>
+            </symbol>
+
+            <symbol id="svg-dices" viewBox="0 0 700 700">
+                <path d="m520.81 46.668c-7.5781-0.070313-15.301 1.3477-22.719 4.418l-123.75 51.27c-29.672 12.293-43.879 46.559-31.582 76.246l51.246 123.71c12.297 29.688 46.57 43.895 76.242 31.605l123.75-51.27c29.672-12.293 43.879-46.559 31.582-76.246l-51.246-123.71c-9.2227-22.266-30.793-35.824-53.523-36.023zm-0.046875 23.242c13.652 0.035156 26.391 8.1328 32.016 21.715l51.223 123.71c7.5039 18.109-0.83203 38.234-18.934 45.73l-123.75 51.27c-18.102 7.5-38.254-0.84766-45.758-18.957l-51.223-123.71c-7.5-18.109 0.83594-38.234 18.938-45.73l123.75-51.273c4.5273-1.8711 9.1914-2.7656 13.742-2.7539zm-94.93 81.758c-4.6406 0-9.0898 1.8438-12.375 5.125-3.2812 3.2812-5.125 7.7305-5.125 12.375 0 4.6406 1.8438 9.0898 5.125 12.375 3.2852 3.2812 7.7344 5.125 12.375 5.125 4.6445 0 9.0938-1.8438 12.375-5.125 3.2812-3.2852 5.125-7.7344 5.125-12.375 0-4.6445-1.8438-9.0938-5.125-12.375s-7.7305-5.125-12.375-5.125zm58.336 23.332c-4.6445 0-9.0938 1.8438-12.375 5.125s-5.125 7.7344-5.125 12.375 1.8438 9.0938 5.125 12.375 7.7305 5.125 12.375 5.125c4.6406 0 9.0898-1.8438 12.375-5.125 3.2812-3.2812 5.125-7.7344 5.125-12.375s-1.8438-9.0938-5.125-12.375c-3.2852-3.2812-7.7344-5.125-12.375-5.125zm58.332 23.332c-4.6406 0-9.0938 1.8438-12.375 5.125-3.2812 3.2852-5.125 7.7344-5.125 12.375 0 4.6445 1.8438 9.0938 5.125 12.375s7.7344 5.125 12.375 5.125 9.0938-1.8438 12.375-5.125 5.125-7.7305 5.125-12.375c0-4.6406-1.8438-9.0898-5.125-12.375-3.2812-3.2812-7.7344-5.125-12.375-5.125zm-363.31 23.336c-22.73 0.19922-44.301 13.758-53.523 36.023l-51.246 123.71c-12.297 29.688 1.9102 63.953 31.582 76.246l123.75 51.27c29.676 12.289 63.949-1.918 76.246-31.605l51.246-123.71c12.297-29.688-1.9102-63.953-31.582-76.246l-123.75-51.27c-7.418-3.0703-15.141-4.4844-22.719-4.418zm0.046875 23.242c4.5508-0.011718 9.2148 0.88281 13.738 2.7578l123.75 51.27c18.102 7.4961 26.438 27.621 18.938 45.73l-51.227 123.71c-7.5 18.109-27.652 26.457-45.754 18.957l-123.75-51.27c-18.102-7.4961-26.438-27.621-18.934-45.73l51.223-123.71c5.625-13.582 18.363-21.684 32.016-21.715zm13.262 46.758c-4.6406 0-9.0938 1.8438-12.375 5.125s-5.125 7.7305-5.125 12.375c0 4.6406 1.8438 9.0898 5.125 12.375 3.2812 3.2812 7.7344 5.125 12.375 5.125s9.0938-1.8438 12.375-5.125c3.2812-3.2852 5.125-7.7344 5.125-12.375 0-4.6445-1.8438-9.0938-5.125-12.375s-7.7344-5.125-12.375-5.125zm81.668 35c-4.6445 0-9.0938 1.8438-12.375 5.125s-5.125 7.7305-5.125 12.375c0 4.6406 1.8438 9.0898 5.125 12.375 3.2812 3.2812 7.7305 5.125 12.375 5.125 4.6406 0 9.0898-1.8438 12.375-5.125 3.2812-3.2852 5.125-7.7344 5.125-12.375 0-4.6445-1.8438-9.0938-5.125-12.375-3.2852-3.2812-7.7344-5.125-12.375-5.125zm-58.336 23.332c-4.6406 0-9.0898 1.8438-12.375 5.125-3.2812 3.2812-5.125 7.7344-5.125 12.375s1.8438 9.0938 5.125 12.375c3.2852 3.2812 7.7344 5.125 12.375 5.125 4.6445 0 9.0938-1.8438 12.375-5.125s5.125-7.7344 5.125-12.375-1.8438-9.0938-5.125-12.375-7.7305-5.125-12.375-5.125zm-58.332 23.332c-4.6406 0-9.0938 1.8438-12.375 5.125-3.2812 3.2852-5.125 7.7344-5.125 12.375 0 4.6445 1.8438 9.0938 5.125 12.375s7.7344 5.125 12.375 5.125 9.0938-1.8438 12.375-5.125 5.125-7.7305 5.125-12.375c0-4.6406-1.8438-9.0898-5.125-12.375-3.2812-3.2812-7.7344-5.125-12.375-5.125zm81.668 35c-4.6445 0-9.0938 1.8438-12.375 5.125-3.2812 3.2852-5.125 7.7344-5.125 12.375 0 4.6445 1.8438 9.0938 5.125 12.375s7.7305 5.125 12.375 5.125c4.6406 0 9.0898-1.8438 12.375-5.125 3.2812-3.2812 5.125-7.7305 5.125-12.375 0-4.6406-1.8438-9.0898-5.125-12.375-3.2852-3.2812-7.7344-5.125-12.375-5.125z"/>
+            </symbol>
+
+            <symbol id="svg-close" viewBox="0 0 700 700">
+                <path d="m350 80.207c-110.34 0-199.79 89.449-199.79 199.79s89.449 199.79 199.79 199.79 199.79-89.449 199.79-199.79-89.449-199.79-199.79-199.79zm-234.79 199.79c0-129.67 105.12-234.79 234.79-234.79s234.79 105.12 234.79 234.79-105.12 234.79-234.79 234.79-234.79-105.12-234.79-234.79zm160.8-73.992c6.8359-6.832 17.914-6.832 24.75 0l49.242 49.242 49.242-49.242c6.8359-6.832 17.914-6.832 24.75 0 6.832 6.8359 6.832 17.914 0 24.75l-49.242 49.242 49.242 49.242c6.832 6.8359 6.832 17.914 0 24.75-6.8359 6.8359-17.914 6.8359-24.75 0l-49.242-49.242-49.242 49.242c-6.8359 6.8359-17.914 6.8359-24.75 0-6.832-6.8359-6.832-17.914 0-24.75l49.242-49.242-49.242-49.242c-6.832-6.8359-6.832-17.914 0-24.75z" fill-rule="evenodd"/>
+               </symbol>
+
+        </defs>
+    </svg>
+
+
+    <div class="lots screen up">
+
+        <div class="container">
+            <div class="lots__box" id="lotsBox">
+
+            
+            </div>
+            
+            <div class="lots__panel">
+                <form id="form">
+                    <input type="text" id="input" placeholder="добавь жребий" autocomplete="off" maxlength = "30">
+                </form>
+        
+                <div class="lots__handlers">
+                    <button class="btn reset-btn" id="resetBtn">сбросить</button>
+                    <button class="btn add-btn" id="addBtn">добавить</button>
+                    <button class="btn shuffle-btn" id="shuffleBtn">перемешать</button>
+                </div>
+
+                <small>* Чтобы удалить из списка добавленный жребий, нажмите на него два раза.</small>
+
+                <svg class="lots__svg-close" id="closeBtnLots">
+                    <use xlink:href="#svg-close"></use>
+                </svg>
+    
+            </div>
+
+        </div>
+
+    </div>
+
+    <div class="hero screen" id="">
+        <div class="hero__back" id="heroBack">
+            <svg class="svg-animated">
+                <use xlink:href="#svg-lots"></use>
+                <use xlink:href="#svg-lots"></use>
+                <use xlink:href="#svg-lots"></use>
+            </svg>
+            <h1>кинем<br>жребий?</h1>
+        </div>
+
+        <div class="hero__front" id="heroFront">
+            <svg class="svg-animated">
+                <use xlink:href="#svg-dices"></use>
+            </svg>
+            <h1>кинем<br>кости?</h1>
+        </div>
+    </div>
+
+    <div class="dice screen">
+
+        <div class="dice__content">
+
+            <div class="container-cube1">
+    
+                <div id="cube1">
+                    <div class="front">
+                        <span class="dot dot1"></span>
+                      </div>
+                      <div class="back">
+                        <span class="dot dot1"></span>
+                        <span class="dot dot2"></span>
+                        <span class="dot dot3"></span>
+                        <span class="dot dot4"></span>
+                        <span class="dot dot5"></span>
+                        <span class="dot dot6"></span>
+                      </div>
+                      <div class="right">
+                        <span class="dot dot1"></span>
+                        <span class="dot dot2"></span>
+                        <span class="dot dot3"></span>
+                      </div>
+                      <div class="left">
+                        <span class="dot dot1"></span>
+                        <span class="dot dot2"></span>
+                        <span class="dot dot3"></span>
+                        <span class="dot dot4"></span>
+                      </div>
+                      <div class="top">
+                        <span class="dot dot1"></span>
+                        <span class="dot dot2"></span>
+                      </div>
+                      <div class="bottom">
+                        <span class="dot dot1"></span>
+                        <span class="dot dot2"></span>
+                        <span class="dot dot3"></span>
+                        <span class="dot dot4"></span>
+                        <span class="dot dot5"></span>
+                      </div>
+                </div>
+                
+            </div>
+
+            <div class="container-cube2">
+    
+                <div id="cube2">
+                  <div class="front">
+                    <span class="dot dot1"></span>
+                  </div>
+                  <div class="back">
+                    <span class="dot dot1"></span>
+                    <span class="dot dot2"></span>
+                    <span class="dot dot3"></span>
+                    <span class="dot dot4"></span>
+                    <span class="dot dot5"></span>
+                    <span class="dot dot6"></span>
+                  </div>
+                  <div class="right">
+                    <span class="dot dot1"></span>
+                    <span class="dot dot2"></span>
+                    <span class="dot dot3"></span>
+                  </div>
+                  <div class="left">
+                    <span class="dot dot1"></span>
+                    <span class="dot dot2"></span>
+                    <span class="dot dot3"></span>
+                    <span class="dot dot4"></span>
+                  </div>
+                  <div class="top">
+                    <span class="dot dot1"></span>
+                    <span class="dot dot2"></span>
+                  </div>
+                  <div class="bottom">
+                    <span class="dot dot1"></span>
+                    <span class="dot dot2"></span>
+                    <span class="dot dot3"></span>
+                    <span class="dot dot4"></span>
+                    <span class="dot dot5"></span>
+                  </div>
+                </div>
+                
+            </div>
+
+        </div>
+
+        <button class="btn roll-btn" id="rollBtn">кинуть кости</button>
+
+        <svg class="lots__svg-close" id="closeBtnDices">
+            <use xlink:href="#svg-close"></use>
+        </svg>
+    </div>
+
+ 
+
+    <script src="js/main.min.js"></script>
+</body>
+</html>
