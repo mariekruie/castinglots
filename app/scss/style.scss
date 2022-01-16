@@ -308,32 +308,50 @@
 
 #cube1 .front,
 #cube2 .front {
-  transform: translateZ(80px);
+  transform: translateZ(100px);
+  @include phone-only {
+    transform: translateZ(80px);
+  }
 }
 
 #cube1 .back,
 #cube2 .back {
-  transform: rotateX(-180deg) translateZ(80px);
+  transform: rotateX(-180deg) translateZ(100px);
+  @include phone-only {
+    transform: rotateX(-180deg) translateZ(80px);
+  }
 }
 
 #cube1 .right,
 #cube2 .right {
-  transform: rotateY(90deg) translateZ(80px);
+  transform: rotateY(90deg) translateZ(100px);
+  @include phone-only {
+    transform: rotateY(90deg) translateZ(80px);
+  }
 }
 
 #cube1 .left,
 #cube2 .left {
-  transform: rotateY(-90deg) translateZ(80px);
+  transform: rotateY(-90deg) translateZ(100px);
+  @include phone-only {
+    transform: rotateY(-90deg) translateZ(80px);
+  }
 }
 
 #cube1 .top,
 #cube2 .top {
-  transform: rotateX(90deg) translateZ(80px);
+  transform: rotateX(90deg) translateZ(100px);
+  @include phone-only {
+    transform: rotateX(90deg) translateZ(80px);
+  }
 }
 
 #cube1 .bottom,
 #cube2 .bottom {
-  transform: rotateX(-90deg) translateZ(80px);
+  transform: rotateX(-90deg) translateZ(100px);
+  @include phone-only {
+    transform: rotateX(-90deg) translateZ(80px);
+  }
 }
 
 .container-cube1,
