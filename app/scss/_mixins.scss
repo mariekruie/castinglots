@@ -3,6 +3,11 @@
     @content;
   }
 }
+@mixin phone-up {
+  @media (min-width: 600px) {
+    @content;
+  }
+}
 @mixin tablet-down {
   @media (max-width: 899px) {
     @content;
