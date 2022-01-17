@@ -76,8 +76,10 @@
   max-height: 100%;
 }
 .on svg {
-  -webkit-animation: roll-in 3s ease-out both;
-  animation: roll-in 3s ease-out both;
+  @include tablet-up {
+    -webkit-animation: roll-in 3s ease-out both;
+    animation: roll-in 3s ease-out both;
+  }
 }
 .hero__back svg {
   width: 70%;
@@ -86,23 +88,6 @@
   right: 0;
   stroke: $light-yellow;
   fill: none;
-
-  & use:nth-child(1) {
-    // -webkit-animation: swing-in 5s cubic-bezier(0.175, 0.885, 0.32, 1.275) both;
-    // animation: swing-in 5s cubic-bezier(0.175, 0.885, 0.32, 1.275) both;
-  }
-
-  & use:nth-child(2) {
-    // -webkit-animation: swing-in 5s cubic-bezier(0.175, 0.885, 0.32, 1.275) both;
-    // animation: swing-in 5s cubic-bezier(0.175, 0.885, 0.32, 1.275) both;
-    // animation-delay: 1.5s;
-  }
-
-  & use:nth-child(3) {
-    // -webkit-animation: swing-in 5s cubic-bezier(0.175, 0.885, 0.32, 1.275) both;
-    // animation: swing-in 5s cubic-bezier(0.175, 0.885, 0.32, 1.275) both;
-    // animation-delay: 2s;
-  }
 }
 
 .hero__front svg {
@@ -133,7 +118,7 @@
     overflow-y: auto;
 
     @include phone-only {
-      height: 70%;
+      height: 65%;
       padding: 1rem 1rem;
       gap: 1rem;
     }
@@ -159,7 +144,7 @@
     background-color: $light-yellow;
 
     @include phone-only {
-      height: 30%;
+      height: 35%;
       justify-content: flex-start;
       align-items: flex-start;
       padding: 1rem 1rem;
@@ -267,7 +252,9 @@
     }
 
     &-shuffle {
-      opacity: 0;
+      -webkit-animation: scale-out 0.5s cubic-bezier(0.55, 0.085, 0.68, 0.53)
+        both;
+      animation: scale-out 0.5s cubic-bezier(0.55, 0.085, 0.68, 0.53) both;
     }
 
     &-selected {
@@ -304,7 +291,7 @@
       padding-top: 0;
       align-items: center;
       justify-content: flex-start;
-      gap: 7rem;
+      gap: 6rem;
     }
   }
 
