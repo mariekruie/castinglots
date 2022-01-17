@@ -48,10 +48,13 @@
             </div>
             
             <div class="lots__panel">
-                <form id="form">
-                    <input type="text" id="input" placeholder="добавь жребий" autocomplete="off" maxlength = "30">
+
+                <div class="lots__form">
+                    <form id="form">
+                        <input type="text" id="input" placeholder="добавь жребий" autocomplete="off" maxlength = "30">
+                    </form>
                     <button class="btn add-btn phone-only" id="addBtn">+</button>
-                </form>
+                </div>
         
                 <div class="lots__handlers">
                     <button class="btn reset-btn" id="resetBtn">сбросить</button>
@@ -175,7 +178,7 @@
 
         <button class="btn roll-btn" id="rollBtn">кинуть кости</button>
 
-        <svg class="lots__svg-close" id="closeBtnDices">
+        <svg class="dice__svg-close" id="closeBtnDices">
             <use xlink:href="#svg-close"></use>
         </svg>
     </div>

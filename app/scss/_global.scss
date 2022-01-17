@@ -50,20 +50,12 @@ body {
 }
 .btn.shuffle-btn {
   background-color: $orange-yellow;
-  @include phone-only {
-    // width: 45%;
-  }
 }
 .btn.reset-btn {
   background-color: $paradise-pink;
-  @include phone-only {
-    // width: 45%;
-  }
 }
 .btn.add-btn {
   background-color: $caribbean-green;
-  @include phone-only {
-  }
 }
 .btn.roll-btn {
   width: 20%;

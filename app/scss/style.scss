@@ -130,10 +130,19 @@
     justify-content: center;
     gap: 1.2rem;
     padding: 0 3.125rem;
+    overflow-y: auto;
 
     @include phone-only {
       height: 70%;
       padding: 1rem 1rem;
+      gap: 1rem;
+    }
+  }
+
+  &__form {
+    @include phone-only {
+      display: flex;
+      flex-wrap: nowrap;
       gap: 1rem;
     }
   }
@@ -147,7 +156,7 @@
     justify-content: center;
     gap: 2rem;
     padding: 0 3.125rem;
-    background-color: $blue-munsell;
+    background-color: $light-yellow;
 
     @include phone-only {
       height: 30%;
@@ -155,12 +164,6 @@
       align-items: flex-start;
       padding: 1rem 1rem;
       gap: 1rem;
-    }
-
-    form {
-      @include phone-only {
-        width: 100%;
-      }
     }
 
     input {
@@ -173,7 +176,7 @@
       border-radius: 0.5rem;
 
       @include phone-only {
-        width: 80%;
+        width: 100%;
         padding: 1rem 1rem;
         font-size: 1rem;
       }
@@ -302,6 +305,25 @@
       align-items: center;
       justify-content: flex-start;
       gap: 7rem;
+    }
+  }
+
+  &__svg-close {
+    position: absolute;
+    width: 4.5rem;
+    height: 4.5rem;
+    right: 1vh;
+    top: 1vh;
+    cursor: pointer;
+    transition: all 0.2s ease-in-out;
+
+    @include phone-only {
+      width: 2.5rem;
+      height: 2.5rem;
+    }
+
+    &:hover {
+      fill: $caribbean-green;
     }
   }
 }
@@ -440,8 +462,8 @@
   top: 85px;
   left: 85px;
   @include phone-only {
-    top: 60px;
-    left: 60px;
+    top: 70px;
+    left: 70px;
   }
 }
 .top .dot1 {
@@ -487,60 +509,120 @@
 .left .dot1 {
   top: 45px;
   left: 45px;
+  @include phone-only {
+    top: 35px;
+    left: 35px;
+  }
 }
 .left .dot2 {
   top: 45px;
   left: 125px;
+  @include phone-only {
+    top: 35px;
+    left: 105px;
+  }
 }
 .left .dot3 {
   top: 125px;
   left: 45px;
+  @include phone-only {
+    top: 105px;
+    left: 35px;
+  }
 }
 .left .dot4 {
   top: 125px;
   left: 125px;
+  @include phone-only {
+    top: 105px;
+    left: 105px;
+  }
 }
 .bottom .dot1 {
   top: 45px;
   left: 45px;
+  @include phone-only {
+    top: 25px;
+    left: 30px;
+  }
 }
 .bottom .dot2 {
   top: 45px;
   left: 125px;
+  @include phone-only {
+    top: 25px;
+    left: 110px;
+  }
 }
 .bottom .dot3 {
   top: 85px;
   left: 85px;
+  @include phone-only {
+    top: 70px;
+    left: 70px;
+  }
 }
 .bottom .dot4 {
   top: 125px;
   left: 45px;
+  @include phone-only {
+    top: 110px;
+    left: 30px;
+  }
 }
 .bottom .dot5 {
   top: 125px;
   left: 125px;
+  @include phone-only {
+    top: 110px;
+    left: 110px;
+  }
 }
 .back .dot1 {
   top: 45px;
   left: 45px;
+  @include phone-only {
+    top: 20px;
+    left: 30px;
+  }
 }
 .back .dot2 {
   top: 45px;
   left: 85px;
+  @include phone-only {
+    top: 70px;
+    left: 30px;
+  }
 }
 .back .dot3 {
   top: 45px;
   left: 125px;
+  @include phone-only {
+    top: 20px;
+    left: 110px;
+  }
 }
 .back .dot4 {
   top: 125px;
   left: 45px;
+  @include phone-only {
+    top: 120px;
+    left: 30px;
+  }
 }
 .back .dot5 {
   top: 125px;
   left: 85px;
+  @include phone-only {
+    top: 70px;
+    left: 110px;
+  }
 }
 .back .dot6 {
   top: 125px;
   left: 125px;
+  @include phone-only {
+    top: 120px;
+    left: 110px;
+  }
 }
